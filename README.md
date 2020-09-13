@@ -1,3 +1,8 @@
+## Jotto
+
+This is a small project/game to practice testing with Jest and Enzyme.
+All made while watching a course on Udemy.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
