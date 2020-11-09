@@ -20,7 +20,16 @@ function Input({ secretWord }) {
           value={currentGuess}
           onChange={(event) => setCurrentGuess(event.target.value)}
         />
-        <button data-test='submit-button' className='btn btn-primary mb-2'>
+        <button
+          data-test='submit-button'
+          onClick={(e) => {
+            e.preventDefault();
+            // TODO: update guessedWord
+            // TODO: check against secretWord and update success if needed
+            setCurrentGuess('');
+          }}
+          className='btn btn-primary mb-2'
+        >
           Submit
         </button>
       </form>
