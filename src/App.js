@@ -2,8 +2,12 @@ import React from 'react';
 import './App.css';
 import hookActions from './actions/hookActions';
 import languageContext from './contexts/languageContext';
+import successContext from './contexts/successContext';
+import guessedWordsContext from './contexts/guessedWordsContext';
 import LanguagePicker from './LanguagePicker';
 import Input from './Input';
+import Congrats from './Congrats';
+import GuessedWords from './GuessedWords';
 
 // reducer to update state, called automatically by dispatch
 // action is an object with type and payload. example: { type: "secretWord", payload: "party" }
@@ -52,7 +56,13 @@ function App() {
       <h1>Jotto</h1>
       <languageContext.Provider value={state.language}>
         <LanguagePicker setLanguage={setLanguage} />
-        <Input secretWord={state.secretWord} />
+        <guessedWordsContext.GuessedWordsProvider>
+          <successContext.SuccessProvider>
+            <Congrats />
+            <Input secretWord={state.secretWord} />
+          </successContext.SuccessProvider>
+          <GuessedWords />
+        </guessedWordsContext.GuessedWordsProvider>
       </languageContext.Provider>
     </div>
   );
